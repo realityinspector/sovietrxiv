@@ -24,7 +24,7 @@ chmod +x sovietrxiv.sh
 
 ## The Explorer (sovietrxiv.sh)
 
-A pure zsh + curl + jq tool for interactive use, meta-analysis, and search.
+A pure zsh + curl + jq tool (jq installed) for interactive use, meta-analysis, and search.
 
 ### Commands
 
