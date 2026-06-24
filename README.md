@@ -1,5 +1,7 @@
 # sovietrxiv
 
+**Author:** realityinspector (sean@semantic-life.com)
+
 API crawler, harvester, and shell explorer for **SovietRxiv** (https://sovietrxiv.org).
 
 - 15k+ English-access Soviet-era scientific papers (russiarxiv source)
@@ -11,7 +13,7 @@ API crawler, harvester, and shell explorer for **SovietRxiv** (https://sovietrxi
 ```bash
 cd sovietrxiv
 cp .env.example .env
-# edit .env with your email for 10x rate limit (recommended)
+# edit .env with your email (sean@semantic-life.com recommended for polite pool)
 chmod +x sovietrxiv.sh
 
 ./sovietrxiv.sh help
@@ -93,7 +95,7 @@ done
 ### Rate Limits & Etiquette
 
 - Anonymous: 30 req/min
-- With `SOVIETRXIV_EMAIL=you@...` in env: 300 req/min (polite pool)
+- With `SOVIETRXIV_EMAIL=sean@semantic-life.com` (or your email) in env: 300 req/min (polite pool)
 - All responses return `X-RateLimit-*` headers (script prints remaining on verbose)
 
 Harvest will auto-sleep 2s between pages (or less with email). Respect it.
@@ -128,11 +130,13 @@ sovietrxiv/
 
 ## Creating / Updating GitHub Repo
 
-This is set up as `realityinspector/sovietrxiv` (private).
+This is set up as `realityinspector/sovietrxiv` (public).
 
-To recreate:
+**Author:** realityinspector
+
+To recreate / fork:
 ```bash
-gh repo create realityinspector/sovietrxiv --private --source=. --remote=origin --push
+gh repo create realityinspector/sovietrxiv --public --source=. --remote=origin --push
 ```
 
 ## Future / Ideas

@@ -7,7 +7,7 @@
 #        ./sovietrxiv.sh help
 #
 # Env:
-#   SOVIETRXIV_EMAIL=...     # for 300/min polite tier
+#   SOVIETRXIV_EMAIL=sean@semantic-life.com     # for 300/min polite tier (or your email)
 #   SOVIETRXIV_API_BASE=...  # override (default https://sovietrxiv.org/api/v1)
 #   SOVIETRXIV_VERBOSE=1
 
@@ -158,7 +158,7 @@ Search flags (passed to API):
   --lang ru
 
 Env vars:
-  SOVIETRXIV_EMAIL       polite pool (300/min)
+  SOVIETRXIV_EMAIL=sean@semantic-life.com   polite pool (300/min)
   SOVIETRXIV_API_BASE
   SOVIETRXIV_VERBOSE=1
 
