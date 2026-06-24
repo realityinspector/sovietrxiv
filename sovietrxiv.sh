@@ -336,23 +336,28 @@ cmd_harvest() {
       break
     fi
 
-    # Append only new papers
-    local added=0
-    echo "$resp" | jq -c '.data[]' | while read -r p; do
-      local id; id=$(echo "$p" | jq -r '.id')
-      if ! already_have "$id"; then
-        echo "$p" >> "$PAPERS_JSONL"
-        added=$((added+1))
-      fi
-    done
-    # count added this page (recompute because pipe)
-    added=$(echo "$resp" | jq --argjson have "$( [[ -f $PAPERS_JSONL ]] && wc -l < "$PAPERS_JSONL" || echo 0 )" '
-      .data | map(select(.id as $id | $id | tostring)) | length
-    ' || echo 0)
+    # Clean append of new papers only
+    local pagefile
+    pagefile=$(mktemp)
+    echo "$resp" | jq -c '.data[]' > "$pagefile"
+
+    if [[ -f "$PAPERS_JSONL" ]]; then
+      # only append ids not already present
+      jq -r '.id' "$PAPERS_JSONL" | sort -u > "${pagefile}.existing"
+      jq -r '.id' "$pagefile" | sort | comm -23 - "${pagefile}.existing" | while read -r newid; do
+        jq -c --arg id "$newid" 'select(.id == $id)' "$pagefile" >> "$PAPERS_JSONL"
+      done
+      rm -f "${pagefile}.existing"
+    else
+      cat "$pagefile" >> "$PAPERS_JSONL"
+    fi
+    local added
+    added=$(wc -l < "$pagefile")
+    rm -f "$pagefile"
 
     total_seen=$((total_seen + count))
     pages=$((pages+1))
-    log "page $pages: +$count (total seen $total_seen / ~$first_total)  file=$( [[ -f $PAPERS_JSONL ]] && wc -l < "$PAPERS_JSONL" || echo 0 )"
+    log "page $pages: +$added seen (file now has $( [[ -f $PAPERS_JSONL ]] && wc -l < "$PAPERS_JSONL" || echo 0 ))"
 
     cursor=$(echo "$resp" | jq -r '.next_cursor // empty')
     if [[ -z "$cursor" ]]; then
