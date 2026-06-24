@@ -1,0 +1,9 @@
+# sovietrxiv explorer/crawler
+.env
+data/
+*.jsonl
+*.json
+*.pdf
+*.log
+__pycache__/
+.DS_Store
