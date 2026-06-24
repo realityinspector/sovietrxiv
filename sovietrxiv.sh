@@ -130,6 +130,7 @@ Usage:
 
 Core:
   help                     this help
+  demo                     run an interactive-style live demo of key features
   health                   ping API
   stats                    /stats (totals by source)
   subjects [--top N]       list subjects (corpus-wide)
@@ -163,6 +164,7 @@ Env vars:
   SOVIETRXIV_VERBOSE=1
 
 Examples:
+  ./sovietrxiv.sh demo
   ./sovietrxiv.sh stats
   ./sovietrxiv.sh search "differential game" -l 5 --from 1968-01-01
   ./sovietrxiv.sh harvest --all
@@ -419,6 +421,100 @@ cmd_meta() {
   esac
 }
 
+cmd_demo() {
+  echo
+  echo "╔════════════════════════════════════════════════════════════╗"
+  echo "║   SovietRxiv Explorer — LIVE DEMO                          ║"
+  echo "║   https://sovietrxiv.org (original project + data)         ║"
+  echo "╚════════════════════════════════════════════════════════════╝"
+  echo
+  echo "This runs real (small) calls against the public SovietRxiv API."
+  echo "All data is from the original project at sovietrxiv.org."
+  echo
+
+  if [[ -n "$EMAIL" ]]; then
+    echo "✓ Using polite email for higher limits"
+  else
+    echo "ℹ Running anonymously (30/min). Set SOVIETRXIV_EMAIL=... for 300/min."
+  fi
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 1. Health check"
+  echo "────────────────────────────────────────────────────────────"
+  cmd_health
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 2. Stats — focus on russiarxiv (Soviet-era papers)"
+  echo "────────────────────────────────────────────────────────────"
+  cmd_stats | jq '{
+    russiarxiv: .by_source.russiarxiv,
+    last_updated
+  }'
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 3. Search: \"differential game\" (limited to russiarxiv)"
+  echo "────────────────────────────────────────────────────────────"
+  cmd_search "differential game" -l 3
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 4. Get full metadata for a specific paper"
+  echo "────────────────────────────────────────────────────────────"
+  cmd_get ru-197001.82500 | jq '{
+    id, title, date, publication,
+    has_full_text, has_pdf,
+    abstract: (.abstract | .[0:160] + "...")
+  }'
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 5. Sample of machine-translated full text"
+  echo "────────────────────────────────────────────────────────────"
+  cmd_text ru-197001.82500 | head -12
+  echo "    ... (use 'text <id>' to get the full Markdown)"
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> 6. Harvest a few papers + run local meta-analysis"
+  echo "────────────────────────────────────────────────────────────"
+  local demo_dir
+  demo_dir=$(mktemp -d)
+  echo "Harvesting 6 papers into temporary storage..."
+  cmd_harvest --pages 1 --limit 6 --out "$demo_dir" 2>&1 | grep -E '(Harvest|page |complete)'
+
+  local saved_papers=$PAPERS_JSONL
+  PAPERS_JSONL="$demo_dir/papers.jsonl"
+
+  echo
+  echo "Local meta (no more API calls):"
+  echo "  Years:"
+  cmd_meta years
+  echo
+  echo "  Count of papers mentioning 'game':"
+  cmd_meta count "game"
+
+  PAPERS_JSONL=$saved_papers
+  rm -rf "$demo_dir"
+  echo
+
+  echo "────────────────────────────────────────────────────────────"
+  echo ">>> Demo complete!"
+  echo "────────────────────────────────────────────────────────────"
+  echo
+  echo "Next things to try:"
+  echo "  ./sovietrxiv.sh search \"gravity\" --from 1968-01-01 -l 5"
+  echo "  ./sovietrxiv.sh harvest --pages 3"
+  echo "  ./sovietrxiv.sh meta top-pubs"
+  echo "  ./sovietrxiv.sh text ru-197001.04419"
+  echo
+  echo "All credit for the papers, translations, and API goes to:"
+  echo "  https://sovietrxiv.org"
+  echo
+}
+
 # --- main --------------------------------------------------------------------
 
 main() {
@@ -430,6 +526,7 @@ main() {
 
   case "$cmd" in
     help|h|-h|--help)          cmd_help ;;
+    demo)                      cmd_demo ;;
     health)                    cmd_health ;;
     stats)                     cmd_stats ;;
     subjects)                  cmd_subjects "$@" ;;
