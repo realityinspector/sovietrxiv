@@ -7,23 +7,13 @@
 **Tool:** `sovietrxiv.sh` (https://github.com/realityinspector/sovietrxiv)  
 **Corpus:** English-access Soviet-era scientific papers via https://sovietrxiv.org (russiarxiv source, ~15k papers with full text/PDFs)
 
-## Executive Summary
+## Abstract
 
-Systematic searches and harvests with the `sovietrxiv.sh` tool across the SovietRxiv corpus reveal a rich vein of 1960s–1970 research in technical cybernetics, control theory, graph theory on directed structures, and probabilistic inference on graphs. 
+Soviet cybernetics and control theory papers from 1968–1970 contain sophisticated pre-Pearl formalisms for directed graphs (including efficient transitive closure and reachability on DAGs), feedback systems with internal interference and information-theoretic capacities, "ideal" observability that is independent of controls, Markov measures and entropy on graph path spaces, structural decompositions of multiconnected systems, variable-structure/sliding-mode control, and differential games with incomplete information. 
 
-These works describe:
-- Feedback systems with internal interference and information capacities
-- Directed graph reachability, transitive closure, and decomposition
-- Markov measures and entropy on path spaces of graphs
-- "Ideal" observability independent of controls
-- Structural decompositions for large multiconnected systems and stability domains
-- Differential games with incomplete information and variable-structure control
+These ideas map directly onto core challenges in modern causal AI: scalable ancestry and path computations in large causal graphs, feedback-augmented structural causal models (SCMs) and directed information under noise, policy-agnostic identifiability, graph-structured world models with entropy-based regularization, modular/hierarchical causal decompositions, robust hybrid causal models, and adversarial/multi-agent causal reasoning. 
 
-Many of these formalisms predate or parallel the foundations of modern causal graphical models (Judea Pearl's SCMs, d-separation, do-calculus) but use distinct Soviet mathematical traditions (spectral methods, set-valued/contingent dynamics, Lyapunov-style stability, influence coefficients).
-
-**Hypothesis (validated by tool use):** A significant body of this research is under-cited and under-utilized in contemporary causal AI (causal discovery, causal RL, identifiability, world models for agents/LLMs, robust causal effect estimation). Language barriers, cold-war publication silos, and focus on engineering applications (rather than abstract graphical causality) kept it out of the main English-language canon.
-
-The `sovietrxiv.sh` tool (search + cursor pagination + harvest to JSONL + get/text) makes it practical to rediscover, harvest, and analyze these papers at scale. This whitepaper documents the findings, provides mappings to current AI concepts, and points to a reproducible example case.
+A systematic tool-assisted exploration of the SovietRxiv corpus shows that this body of work is substantially under-cited and under-utilized in contemporary causal discovery, causal RL, and LLM causal reasoning literature—primarily due to language barriers, historical publication silos, and the engineering framing of the original papers. The `sovietrxiv.sh` explorer makes rediscovery practical at scale and reveals concrete, ready-to-adapt algorithms (e.g., rank-based observability tests, spectral capacity bounds, path-space entropy measures, and fast algebraic graph closures) that can improve scalability, robustness, and interpretability in today's causal toolkits.
 
 ## Background & Motivation
 
