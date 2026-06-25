@@ -167,6 +167,26 @@ This little tool exists so researchers, historians, and the curious can easily:
 - Bulk harvest for computational analysis
 - Work entirely offline after the initial pull
 
+## Example Use Case: Causal Graphs & Control Theory for Modern AI
+
+See `examples/causal-ai-soviet/` for a complete, runnable case study.
+
+It demonstrates using the tool to surface and analyze 1960s–1970 Soviet papers on:
+- Feedback systems with interference
+- Directed graph reachability & Markov processes on graphs
+- Ideal observability (control-independent reconstruction)
+- Structural decompositions and stability domains
+- Differential games and variable-structure systems
+
+These ideas map to SCMs, causal discovery, causal RL, identifiability, etc.
+
+Run:
+```bash
+./examples/causal-ai-soviet/run_demo.sh
+```
+
+Also see the root `whitepaper.md` for the full hypothesis, detailed paper mappings, and swarm methodology.
+
 ## Author & Credits
 
 **Tool author:** realityinspector (sean@semantic-life.com)  
