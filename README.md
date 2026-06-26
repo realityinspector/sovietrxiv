@@ -1,6 +1,8 @@
-# sovietrxiv
+# rrrrxiv 🏴‍☠️
 
-> A lightweight, powerful open-source CLI for exploring the **SovietRxiv** archive.
+> A lightweight, powerful open-source CLI for plundering the **SovietRxiv** archive.
+
+> **Why did the pirate love the Soviet science archive?** Because it was full of buried treasure — and every paper came with an *Arrrrchive*! 🏴‍☠️
 
 **This is a community downstream tool.**  
 The real hero is the original project at **[https://sovietrxiv.org](https://sovietrxiv.org)** — they do the hard work of recovering, machine-translating, and hosting ~15,000 Soviet-era scientific papers from Russian journals (mostly *Doklady Akademii Nauk SSSR*).
