@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <rect width="900" height="420" fill="#faf6ee"/>
+  <text x="32" y="40" fill="#1a1a2e" font-size="22" font-weight="700">From transitive closure to causal ancestry</text>
+  <text x="32" y="62" fill="#555" font-size="13">Arlazarov &amp; Furman (1970): reachability on a DAG &#8594; today&#8217;s ancestor / descendant queries on causal graphs</text>
+
+  <defs>
+    <marker id="e1" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="#1a1a2e"/>
+    </marker>
+    <marker id="e2" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT: direct edges -->
+  <text x="190" y="100" text-anchor="middle" fill="#b51f24" font-size="15" font-weight="700">Direct edges (observed DAG)</text>
+
+  <!-- node coords: A(80,160) B(300,140) C(180,260) D(330,300) E(120,360) -->
+  <line x1="100" y1="170" x2="282" y2="148" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+  <line x1="92"  y1="180" x2="168" y2="246" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+  <line x1="195" y1="272" x2="312" y2="294" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+  <line x1="168" y1="272" x2="128" y2="344" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+
+  <g font-size="15" font-weight="700" text-anchor="middle">
+    <circle cx="80"  cy="160" r="22" fill="#b51f24"/><text x="80"  y="166" fill="#fff">A</text>
+    <circle cx="300" cy="140" r="22" fill="#2a6f97"/><text x="300" y="146" fill="#fff">B</text>
+    <circle cx="180" cy="260" r="22" fill="#2a6f97"/><text x="180" y="266" fill="#fff">C</text>
+    <circle cx="330" cy="300" r="22" fill="#2a6f97"/><text x="330" y="306" fill="#fff">D</text>
+    <circle cx="120" cy="360" r="22" fill="#2a6f97"/><text x="120" y="366" fill="#fff">E</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="450" y1="90" x2="450" y2="380" stroke="#ddd" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- RIGHT: closure added (dashed gold) -->
+  <text x="680" y="100" text-anchor="middle" fill="#d4a017" font-size="15" font-weight="700">+ Transitive closure (all ancestors)</text>
+
+  <!-- same layout shifted +500 in x -->
+  <!-- direct edges (faded) -->
+  <g opacity="0.45">
+    <line x1="600" y1="170" x2="782" y2="148" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+    <line x1="592" y1="180" x2="668" y2="246" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+    <line x1="695" y1="272" x2="812" y2="294" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+    <line x1="668" y1="272" x2="628" y2="344" stroke="#1a1a2e" stroke-width="2.5" marker-end="url(#e1)"/>
+  </g>
+  <!-- closure edges A->D, A->E, B(none) ... A reaches C,D,E -->
+  <line x1="595" y1="178" x2="812" y2="296" stroke="#d4a017" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#e2)"/>
+  <line x1="588" y1="180" x2="628" y2="342" stroke="#d4a017" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#e2)"/>
+
+  <g font-size="15" font-weight="700" text-anchor="middle">
+    <circle cx="580" cy="160" r="22" fill="#b51f24"/><text x="580" y="166" fill="#fff">A</text>
+    <circle cx="800" cy="140" r="22" fill="#2a6f97"/><text x="800" y="146" fill="#fff">B</text>
+    <circle cx="680" cy="260" r="22" fill="#2a6f97"/><text x="680" y="266" fill="#fff">C</text>
+    <circle cx="830" cy="300" r="22" fill="#2a6f97"/><text x="830" y="306" fill="#fff">D</text>
+    <circle cx="620" cy="360" r="22" fill="#2a6f97"/><text x="620" y="366" fill="#fff">E</text>
+  </g>
+
+  <text x="450" y="406" text-anchor="middle" fill="#555" font-size="12">Gold dashed = ancestry revealed by closure: A &#8620; {C, D, E}. The algebraic speedup makes this cheap at causal-graph scale.</text>
+</svg>

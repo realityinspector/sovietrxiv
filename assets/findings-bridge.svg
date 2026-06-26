@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <rect width="900" height="600" fill="#faf6ee"/>
+  <rect x="0" y="0" width="900" height="74" fill="#1a1a2e"/>
+  <text x="32" y="38" fill="#faf6ee" font-size="24" font-weight="700">Soviet Causal Structures &#8594; Modern AI</text>
+  <text x="32" y="60" fill="#d4a017" font-size="14">Doklady Akademii Nauk SSSR, 1968&#8211;1970  &#8226;  mapped to today&#8217;s causal toolkit</text>
+
+  <!-- column headers -->
+  <text x="200" y="108" text-anchor="middle" fill="#b51f24" font-size="16" font-weight="700">THEN &#9472; Soviet cybernetics (1968&#8211;70)</text>
+  <text x="700" y="108" text-anchor="middle" fill="#2a6f97" font-size="16" font-weight="700">NOW &#9472; causal AI challenges</text>
+
+  <!-- arrowhead -->
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <!-- rows -->
+  <!-- row 1 -->
+  <g>
+    <rect x="40" y="130" width="320" height="64" rx="8" fill="#fff" stroke="#b51f24" stroke-width="2"/>
+    <text x="56" y="156" fill="#1a1a2e" font-size="13" font-weight="700">Feedback systems + internal interference</text>
+    <text x="56" y="176" fill="#555" font-size="12">spectral capacity of closed loops w/ noise</text>
+    <line x1="364" y1="162" x2="536" y2="162" stroke="#d4a017" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="540" y="130" width="320" height="64" rx="8" fill="#fff" stroke="#2a6f97" stroke-width="2"/>
+    <text x="556" y="156" fill="#1a1a2e" font-size="13" font-weight="700">Feedback-augmented SCMs</text>
+    <text x="556" y="176" fill="#555" font-size="12">directed information under latent loops</text>
+  </g>
+  <!-- row 2 -->
+  <g>
+    <rect x="40" y="208" width="320" height="64" rx="8" fill="#fff" stroke="#b51f24" stroke-width="2"/>
+    <text x="56" y="234" fill="#1a1a2e" font-size="13" font-weight="700">Transitive closure of directed graphs</text>
+    <text x="56" y="254" fill="#555" font-size="12">rank decomposition, blocked products</text>
+    <line x1="364" y1="240" x2="536" y2="240" stroke="#d4a017" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="540" y="208" width="320" height="64" rx="8" fill="#fff" stroke="#2a6f97" stroke-width="2"/>
+    <text x="556" y="234" fill="#1a1a2e" font-size="13" font-weight="700">Scalable ancestry &amp; path queries</text>
+    <text x="556" y="254" fill="#555" font-size="12">fast adjustment-set enumeration</text>
+  </g>
+  <!-- row 3 -->
+  <g>
+    <rect x="40" y="286" width="320" height="64" rx="8" fill="#fff" stroke="#b51f24" stroke-width="2"/>
+    <text x="56" y="312" fill="#1a1a2e" font-size="13" font-weight="700">Markov measures / path-space entropy</text>
+    <text x="56" y="332" fill="#555" font-size="12">max-entropy measures on graph paths</text>
+    <line x1="364" y1="318" x2="536" y2="318" stroke="#d4a017" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="540" y="286" width="320" height="64" rx="8" fill="#fff" stroke="#2a6f97" stroke-width="2"/>
+    <text x="556" y="312" fill="#1a1a2e" font-size="13" font-weight="700">Graph world models + entropy scores</text>
+    <text x="556" y="332" fill="#555" font-size="12">trajectory-based causal representations</text>
+  </g>
+  <!-- row 4 -->
+  <g>
+    <rect x="40" y="364" width="320" height="64" rx="8" fill="#fff" stroke="#b51f24" stroke-width="2"/>
+    <text x="56" y="390" fill="#1a1a2e" font-size="13" font-weight="700">Ideally observable systems</text>
+    <text x="56" y="410" fill="#555" font-size="12">reconstruct state for every control</text>
+    <line x1="364" y1="396" x2="536" y2="396" stroke="#d4a017" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="540" y="364" width="320" height="64" rx="8" fill="#fff" stroke="#2a6f97" stroke-width="2"/>
+    <text x="556" y="390" fill="#1a1a2e" font-size="13" font-weight="700">Policy-independent identifiability</text>
+    <text x="556" y="410" fill="#555" font-size="12">robust causal RL &amp; offline eval</text>
+  </g>
+  <!-- row 5 -->
+  <g>
+    <rect x="40" y="442" width="320" height="64" rx="8" fill="#fff" stroke="#b51f24" stroke-width="2"/>
+    <text x="56" y="468" fill="#1a1a2e" font-size="13" font-weight="700">Fast matrix multiply for closure</text>
+    <text x="56" y="488" fill="#555" font-size="12">Strassen-style Boolean powering</text>
+    <line x1="364" y1="474" x2="536" y2="474" stroke="#d4a017" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="540" y="442" width="320" height="64" rx="8" fill="#fff" stroke="#2a6f97" stroke-width="2"/>
+    <text x="556" y="468" fill="#1a1a2e" font-size="13" font-weight="700">Algebraic speedups for causal graphs</text>
+    <text x="556" y="488" fill="#555" font-size="12">large-scale ancestral queries</text>
+  </g>
+
+  <text x="450" y="548" text-anchor="middle" fill="#777" font-size="12">Surfaced with sovietrxiv.sh &#8226; corpus: ~15k English-access Soviet papers via sovietrxiv.org</text>
+  <text x="450" y="572" text-anchor="middle" fill="#b51f24" font-size="13" font-weight="700">rrrrxiv &#127988;&#8205;&#9760;&#65039;</text>
+</svg>

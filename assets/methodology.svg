@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <rect width="900" height="320" fill="#faf6ee"/>
+  <text x="32" y="42" fill="#1a1a2e" font-size="22" font-weight="700">Swarm methodology: how the findings were surfaced</text>
+
+  <defs>
+    <marker id="pa" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#1a1a2e"/>
+    </marker>
+  </defs>
+
+  <!-- stage boxes -->
+  <g>
+    <rect x="30" y="110" width="180" height="120" rx="10" fill="#b51f24"/>
+    <text x="120" y="150" text-anchor="middle" fill="#fff" font-size="34">&#128269;</text>
+    <text x="120" y="186" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">SEARCH</text>
+    <text x="120" y="208" text-anchor="middle" fill="#ffe7c2" font-size="11">parallel terms:</text>
+    <text x="120" y="222" text-anchor="middle" fill="#ffe7c2" font-size="11">graph &#8226; feedback &#8226; Markov</text>
+  </g>
+
+  <line x1="214" y1="170" x2="252" y2="170" stroke="#1a1a2e" stroke-width="3" marker-end="url(#pa)"/>
+
+  <g>
+    <rect x="256" y="110" width="180" height="120" rx="10" fill="#d4a017"/>
+    <text x="346" y="150" text-anchor="middle" fill="#1a1a2e" font-size="34">&#128230;</text>
+    <text x="346" y="186" text-anchor="middle" fill="#1a1a2e" font-size="16" font-weight="700">HARVEST</text>
+    <text x="346" y="208" text-anchor="middle" fill="#3a2e00" font-size="11">metadata + full text</text>
+    <text x="346" y="222" text-anchor="middle" fill="#3a2e00" font-size="11">to local papers.jsonl</text>
+  </g>
+
+  <line x1="440" y1="170" x2="478" y2="170" stroke="#1a1a2e" stroke-width="3" marker-end="url(#pa)"/>
+
+  <g>
+    <rect x="482" y="110" width="180" height="120" rx="10" fill="#2a6f97"/>
+    <text x="572" y="150" text-anchor="middle" fill="#fff" font-size="34">&#9881;</text>
+    <text x="572" y="186" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">FILTER</text>
+    <text x="572" y="208" text-anchor="middle" fill="#d6ecf7" font-size="11">relevance to causal</text>
+    <text x="572" y="222" text-anchor="middle" fill="#d6ecf7" font-size="11">structure &amp; observability</text>
+  </g>
+
+  <line x1="666" y1="170" x2="704" y2="170" stroke="#1a1a2e" stroke-width="3" marker-end="url(#pa)"/>
+
+  <g>
+    <rect x="708" y="110" width="180" height="120" rx="10" fill="#1a1a2e"/>
+    <text x="798" y="150" text-anchor="middle" fill="#fff" font-size="34">&#129518;</text>
+    <text x="798" y="186" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">SYNTHESIZE</text>
+    <text x="798" y="208" text-anchor="middle" fill="#d4a017" font-size="11">map each paper &#8594; SCM,</text>
+    <text x="798" y="222" text-anchor="middle" fill="#d4a017" font-size="11">do-calculus, identifiability</text>
+  </g>
+
+  <text x="32" y="282" fill="#555" font-size="13">Reproducible: <tspan font-weight="700" fill="#1a1a2e">./examples/causal-ai-soviet/run_demo.sh</tspan> &#8226; tool-assisted parallel tasking (&#8220;swarm&#8221;)</text>
+  <text x="868" y="306" text-anchor="end" fill="#b51f24" font-size="13" font-weight="700">rrrrxiv &#127988;&#8205;&#9760;&#65039;</text>
+</svg>

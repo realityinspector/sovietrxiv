@@ -7,6 +7,8 @@
 **Tool:** `sovietrxiv.sh` (https://github.com/realityinspector/sovietrxiv)  
 **Corpus:** English-access Soviet-era scientific papers via https://sovietrxiv.org (russiarxiv source, ~15k papers with full text/PDFs)
 
+![Soviet causal structures mapped to modern AI](assets/findings-bridge.svg)
+
 ## Abstract
 
 Soviet cybernetics and control theory papers from 1968–1970 contain sophisticated pre-Pearl formalisms for directed graphs (including efficient transitive closure and reachability on DAGs), feedback systems with internal interference and information-theoretic capacities, "ideal" observability that is independent of controls, Markov measures and entropy on graph path spaces, structural decompositions of multiconnected systems, variable-structure/sliding-mode control, and differential games with incomplete information. 
@@ -32,6 +34,8 @@ The Soviet school of cybernetics (influenced by Wiener but developed independent
 The corpus (heavily represented in *Doklady Akademii Nauk SSSR*) is now accessible in English via SovietRxiv. Our exploration used the dedicated CLI tool to move beyond web search and perform targeted, reproducible harvesting + analysis.
 
 ## Methodology
+
+![Swarm methodology pipeline: search, harvest, filter, synthesize](assets/methodology.svg)
 
 1. **Tool Usage**
    - `./sovietrxiv.sh search "<term>" -l N --source russiarxiv`
@@ -78,6 +82,8 @@ The corpus (heavily represented in *Doklady Akademii Nauk SSSR*) is now accessib
 - Efficient algorithm for transitive closure (reachability/ancestry) on directed graphs, with special handling for DAGs via rank decomposition and blocked products.
 
 **AI Mapping:** Fast computation of ancestors, descendants, and transitive effects in causal graphs. Directly relevant to scalable causal discovery, adjustment set enumeration, and path-based reasoning at LLM/knowledge-graph scale.
+
+![Transitive closure revealing causal ancestry on a DAG](assets/transitive-closure.svg)
 
 **3. ru-197001.37210 — ENTROPY OF A SHIFT AND MARKOV MEASURES IN THE PATH SPACE OF A COUNTABLE GRAPH** (B.M. Gurevich; presented by A.N. Kolmogorov)
 
